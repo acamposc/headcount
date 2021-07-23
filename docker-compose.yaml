@@ -1,0 +1,19 @@
+#https://medium.com/analytics-vidhya/getting-started-with-postgresql-using-docker-compose-34d6b808c47c#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjdmNTQ4ZjY3MDg2OTBjMjExMjBiMGFiNjY4Y2FhMDc5YWNiYzJiMmYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MjY5NzMzNzEsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMzExNjg3MjE2NTU2NTUzODA0NSIsImVtYWlsIjoiYXJ0dXJwbHVyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoiQXJ0dXJvIENhbXBvcyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaUlBc3pRQ3h6MkNfV0dOVk00UzJqV1hIVWotcGpPblM5NDJqZ2pkUT1zOTYtYyIsImdpdmVuX25hbWUiOiJBcnR1cm8iLCJmYW1pbHlfbmFtZSI6IkNhbXBvcyIsImlhdCI6MTYyNjk3MzY3MSwiZXhwIjoxNjI2OTc3MjcxLCJqdGkiOiI3NmUyY2IwODUwYmVkMGYwNTU3NjViNmE3NDIxMTBmZGY1ZGE3MDhmIn0.gq9V2GUdLOhd_bJ6C2Vgf3Q6kuDEJ2PAgOrf4wFVCgiq6FH6tA9GgeZSGJePuxjzvEGZCRy-4lX50j0pZqlUWnQvHcL-VqgZL2pqKExbbM-5bxBHkOQIpwGBqZ_jEP_B1_om1mFeZWRDLgo9sa5SkuatrTVFaO2l2l8jFgyV0byWzYHnkYSxPc1CK8NSkUXHxjcNwaPkONLJ8RaGo6bhBB-NVRTI4UQJbreiUdl4b9_crcVt9kTDbYm4ot6oHFRzyV3pjiULD33rk4dXDy53N4YyKFbKjhS9FMdIG4A5ao-yNKrQLUDekJY4jP77FVu9X7JGczemqVd4fC0XxVWi3A
+#https://towardsdatascience.com/how-to-run-postgresql-using-docker-15bf87b452d4
+version: '3'
+services:
+    database:
+        image: "postgres:alpine"
+        container_name: postgres
+        env_file:
+            - database.env
+        volumes: 
+            - "./sh:/sh"
+            - "./report:/report"
+            - "./data:/data"
+            - "database-data:/var/lib/postgresql/data/"
+        ports:
+            - "5432:5432"
+
+volumes:
+    database-data:
