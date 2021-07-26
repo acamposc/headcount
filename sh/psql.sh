@@ -1,5 +1,7 @@
-   #!/bin/bash
-   
-   psql --host=postgres \
-    --dbname=attach_headcount \
-    --username=acampos \
+#!/bin/bash
+
+. ./sh/env.sh
+
+   psql --host=$DB_HOST \
+    --dbname=$DB_NAME \
+    --username=$DB_USERNAME \
